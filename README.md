@@ -1,4 +1,4 @@
-[![TemuanCyber OrangAsli](https://img.shields.io/badge/Example-Badge-blue)](https://heylink.me/temuancyber/)
+[![TemuanCyber OrangAsli](https://img.shields.io/badge/TemuanCyber-OrangAsli-blue)](https://heylink.me/temuancyber/)
 
 
 
